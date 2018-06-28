@@ -1,0 +1,43 @@
+html,body
+{
+    background-color: #333;
+}
+
+.game
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.board
+{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ccc;
+  border: 2px solid #999;
+  width: 180px;
+  height: 180px;
+}
+
+.board li
+{
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  background-color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.board li.alive
+{
+  background-color: #090;
+}
+
+button
+{
+  margin: 5px;
+}
