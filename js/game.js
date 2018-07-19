@@ -3,7 +3,7 @@ var Game = {
   play: null,
   board: null,
   cells: null,
-  init: function() {
+  init: function () {
     Board.createCells();
     Game.board = Board.getBoard();
     Game.cells = Board.getCells();
