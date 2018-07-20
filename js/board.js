@@ -45,7 +45,7 @@ var Board = {
   resize : function () {
     var board = document.getElementsByClassName('board')[0];
     console.log(board);
-    var size = (((Board.columns * Board.rows) * 5));
+    var size = ((Board.columns * 36));
     board.style.width = size + "px";
     board.style.height = size+ "px";
     console.log(size);
