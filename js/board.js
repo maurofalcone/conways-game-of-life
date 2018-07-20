@@ -41,6 +41,9 @@ var Board = {
     var newBoard = GameOfLife.createEmtyBoard(Board.rows, Board.columns);
     GameOfLife.getNextStep(currentBoard, newBoard);
     Board.updateCells(newBoard);
+    for (var i = 0; i < Game.cells.length; i++) {
+      Game.cells[i].onclick = Cell.toggle;
+    }
   },
   resize : function () {
     var board = document.getElementsByClassName('board')[0];
