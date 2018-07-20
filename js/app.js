@@ -3,6 +3,7 @@ window.onload = function() {
   Modal.btnSave = document.getElementById('save');
   Modal.btnSave.onclick = function () {
   Modal.save();
+  Board.resize();
   var Play = function () {
     var liAlives = Board.getCells();
     Board.updateCells(liAlives);

@@ -41,5 +41,13 @@ var Board = {
     var newBoard = GameOfLife.createEmtyBoard(Board.rows, Board.columns);
     GameOfLife.getNextStep(currentBoard, newBoard);
     Board.updateCells(newBoard);
+  },
+  resize : function () {
+    var board = document.getElementsByClassName('board')[0];
+    console.log(board);
+    var size = (((Board.columns * Board.rows) * 5));
+    board.style.width = size + "px";
+    board.style.height = size+ "px";
+    console.log(size);
   }
 }
