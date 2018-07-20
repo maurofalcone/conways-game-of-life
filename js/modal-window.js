@@ -1,5 +1,4 @@
 var Modal = {
-  btnSave: null,
   number: 0,
   modal: null,
   show: function () {
@@ -13,6 +12,5 @@ var Modal = {
       game.style.display = "flex";
       Board.columns = Modal.number;
       Board.rows = Modal.number;
-    //validate input form
   }
 }
