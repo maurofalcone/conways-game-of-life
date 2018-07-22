@@ -3,6 +3,7 @@ var Game = {
   play: null,
   board: null,
   cells: null,
+  id: null,
   init: function () {
     Board.createCells();
     Game.board = Board.getBoard();
@@ -18,7 +19,14 @@ var Game = {
     Game.play.onclick = Game.update;
   },
   update: function () {
-    console.log('update');
-    setInterval(Board.nextStep,1000);
+    console.log(Game.play.textContent);
+    if(Game.play.textContent === 'Play'){
+      id = setInterval(Board.nextStep,1000);
+      Game.play.innerHTML = "Stop";
+    }
+    else if(Game.play.textContent === 'Stop'){
+      clearInterval(id);
+      Game.play.innerHTML = 'Play';
+    }
   }
 };
