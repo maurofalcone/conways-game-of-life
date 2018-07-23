@@ -6,12 +6,12 @@ html,body
 .game
 {
   display: none;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
 }
-
 .board
 {
   display: flex;
@@ -41,9 +41,9 @@ button
 {
   margin: 5px;
 }
-#play, #next{
-  width: 30px;
-  height: 30px;
+#play, #next, #speedUp, #saveProgress{
+  width: 20px;
+  height: 20px;
   background-size: contain;
 }
 #play{
@@ -51,4 +51,16 @@ button
 }
 #next{
   background-image: url('../image/next.png');
+}
+#speedUp{
+  background-image: url('../image/speedUp.png');
+}
+#speedUp:hover{
+  background-image: url('../image/alt_speedUp.png');
+}
+#saveProgress{
+  background-image: url('../image/save.png');
+}
+#saveProgress:hover{
+  background-image: url('../image/alt_save.png');
 }
