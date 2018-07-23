@@ -17,16 +17,39 @@ var Game = {
     }
     Game.next.onclick = Board.nextStep;
     Game.play.onclick = Game.update;
+    changeButtonImage();
   },
   update: function () {
-    console.log(Game.play.textContent);
-    if(Game.play.textContent === 'Play'){
+    console.log(Game.play.value);
+    if(Game.play.value === 'Play'){
       id = setInterval(Board.nextStep,1000);
-      Game.play.innerHTML = "Stop";
+      Game.play.value = 'Stop';
+      Game.play.style.backgroundImage = "url('image/stop.jpg')";
+      console.log(Game.play.style.backgroundImage);
     }
-    else if(Game.play.textContent === 'Stop'){
+    else if(Game.play.value === 'Stop'){
       clearInterval(id);
-      Game.play.innerHTML = 'Play';
+      Game.play.value = 'Play'
+      Game.play.style.backgroundImage = "url('image/play.jpg')";
+      }
+      changeButtonImage();
     }
   }
-};
+function changeButtonImage() {
+ Game.play.onmouseover = function () {
+   if(Game.play.value === 'Play'){
+     Game.play.style.backgroundImage = "url('image/alt_play.png')";
+   }
+   else if(Game.play.value === 'Stop'){
+     Game.play.style.backgroundImage = "url('image/alt_stop.png')";
+   }
+ }
+ Game.play.onmouseout = function () {
+     if(Game.play.value === 'Play'){
+       Game.play.style.backgroundImage = "url('image/play.jpg')";
+     }
+     else if(Game.play.value === 'Stop'){
+       Game.play.style.backgroundImage = "url('image/stop.jpg')";
+     }
+ }
+}
