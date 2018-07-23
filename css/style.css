@@ -41,9 +41,14 @@ button
 {
   margin: 5px;
 }
-#play{
+#play, #next{
   width: 30px;
   height: 30px;
   background-size: contain;
+}
+#play{
   background-image: url('../image/play.jpg');
+}
+#next{
+  background-image: url('../image/next.png');
 }

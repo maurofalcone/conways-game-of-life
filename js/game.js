@@ -32,17 +32,22 @@ var Game = {
       Game.play.value = 'Play'
       Game.play.style.backgroundImage = "url('image/play.jpg')";
       }
-      changeButtonImage();
-    }
   }
+}
 function changeButtonImage() {
  Game.play.onmouseover = function () {
    if(Game.play.value === 'Play'){
      Game.play.style.backgroundImage = "url('image/alt_play.png')";
+     Game.play.title = 'Play';
    }
    else if(Game.play.value === 'Stop'){
      Game.play.style.backgroundImage = "url('image/alt_stop.png')";
+     Game.play.title = 'Stop';
    }
+ }
+ Game.next.onmouseover = function () {
+       Game.next.style.backgroundImage = "url('image/alt_next.png')";
+       Game.next.title = 'Next Step';
  }
  Game.play.onmouseout = function () {
      if(Game.play.value === 'Play'){
@@ -51,5 +56,8 @@ function changeButtonImage() {
      else if(Game.play.value === 'Stop'){
        Game.play.style.backgroundImage = "url('image/stop.jpg')";
      }
+ }
+ Game.next.onmouseout = function () {
+      Game.next.style.backgroundImage = "url('image/next.png')";
  }
 }
