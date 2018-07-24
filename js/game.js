@@ -56,10 +56,7 @@ var Game = {
     else if(Game.count === 3) {
       time = 50;
       Game.count = 0;
-      console.log('ahora si', Game.count);
     }
-    console.log('click' + Game.count);
-    console.log('time' + time);
   }
 }
 function changeButtonImage() {
