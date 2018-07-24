@@ -12,6 +12,7 @@ html,body
   width: 100vw;
   height: 100vh;
 }
+
 .board
 {
   display: flex;
@@ -41,26 +42,45 @@ button
 {
   margin: 5px;
 }
-#play, #next, #speedUp, #saveProgress{
-  width: 20px;
-  height: 20px;
-  background-size: contain;
+
+#play, #next, #speedUp, #saveProgress
+{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
 }
-#play{
-  background-image: url('../image/play.jpg');
+
+#play
+{
+  background-image: url('../image/play.png');
 }
-#next{
+
+#next
+{
   background-image: url('../image/next.png');
 }
-#speedUp{
+
+#next:hover
+{
+  background-image: url('../image/alt_next.png');
+}
+
+#speedUp
+{
   background-image: url('../image/speedUp.png');
 }
-#speedUp:hover{
+
+#speedUp:hover
+{
   background-image: url('../image/alt_speedUp.png');
 }
-#saveProgress{
+
+#saveProgress
+{
   background-image: url('../image/save.png');
 }
-#saveProgress:hover{
+
+#saveProgress:hover
+{
   background-image: url('../image/alt_save.png');
 }

@@ -1,6 +1,8 @@
 var Game = {
   next: null,
   play: null,
+  speedUp: null,
+  saveProgress: null,
   board: null,
   cells: null,
   id: null,
@@ -10,6 +12,8 @@ var Game = {
     Game.cells = Board.getCells();
     Game.next = document.getElementById('next');
     Game.play = document.getElementById('play');
+    Game.saveProgress = document.getElementById('saveProgress');
+    Game.speedUp = document.getElementById('speedUp');
   },
   start: function () {
     for (var i = 0; i < Game.cells.length; i++) {
@@ -20,17 +24,15 @@ var Game = {
     changeButtonImage();
   },
   update: function () {
-    console.log(Game.play.value);
     if(Game.play.value === 'Play'){
       id = setInterval(Board.nextStep,1000);
       Game.play.value = 'Stop';
-      Game.play.style.backgroundImage = "url('image/stop.jpg')";
-      console.log(Game.play.style.backgroundImage);
+      Game.play.style.backgroundImage = "url('image/stop.png')";
     }
     else if(Game.play.value === 'Stop'){
       clearInterval(id);
       Game.play.value = 'Play'
-      Game.play.style.backgroundImage = "url('image/play.jpg')";
+      Game.play.style.backgroundImage = "url('image/play.png')";
       }
   }
 }
@@ -46,18 +48,20 @@ function changeButtonImage() {
    }
  }
  Game.next.onmouseover = function () {
-       Game.next.style.backgroundImage = "url('image/alt_next.png')";
-       Game.next.title = 'Next Step';
+   Game.next.title = 'Next Step';
+ }
+ Game.speedUp.onmouseover = function () {
+   Game.speedUp.title = 'Speed Up';
+ }
+ Game.saveProgress.onmouseover = function () {
+   Game.saveProgress.title = 'Save';
  }
  Game.play.onmouseout = function () {
      if(Game.play.value === 'Play'){
-       Game.play.style.backgroundImage = "url('image/play.jpg')";
+       Game.play.style.backgroundImage = "url('image/play.png')";
      }
      else if(Game.play.value === 'Stop'){
-       Game.play.style.backgroundImage = "url('image/stop.jpg')";
+       Game.play.style.backgroundImage = "url('image/stop.png')";
      }
- }
- Game.next.onmouseout = function () {
-      Game.next.style.backgroundImage = "url('image/next.png')";
  }
 }
