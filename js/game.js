@@ -1,4 +1,5 @@
 var Game = {
+  count: 0,
   next: null,
   play: null,
   speedUp: null,
@@ -14,6 +15,7 @@ var Game = {
     Game.play = document.getElementById('play');
     Game.saveProgress = document.getElementById('saveProgress');
     Game.speedUp = document.getElementById('speedUp');
+    time = 1000;
   },
   start: function () {
     for (var i = 0; i < Game.cells.length; i++) {
@@ -21,19 +23,35 @@ var Game = {
     }
     Game.next.onclick = Board.nextStep;
     Game.play.onclick = Game.update;
+    Game.speedUp.onclick = Game.increaseSpeed;
     changeButtonImage();
   },
   update: function () {
     if(Game.play.value === 'Play'){
-      id = setInterval(Board.nextStep,1000);
+      id = setInterval(Board.nextStep,time);
       Game.play.value = 'Stop';
       Game.play.style.backgroundImage = "url('image/stop.png')";
+      Game.speedUp.disabled = true;
     }
     else if(Game.play.value === 'Stop'){
       clearInterval(id);
       Game.play.value = 'Play'
       Game.play.style.backgroundImage = "url('image/play.png')";
-      }
+      Game.speedUp.disabled = false;
+    }
+  },
+  increaseSpeed: function () {
+    Game.count = Game.count + 1;
+    if(Game.count === 1) {
+      time = 500;
+    }
+    else if(Game.count === 2) {
+      time = 250;
+    }
+    else if(Game.count === 3) {
+      time = 50;
+      Game.count = 0;
+    }
   }
 }
 function changeButtonImage() {
@@ -57,11 +75,11 @@ function changeButtonImage() {
    Game.saveProgress.title = 'Save';
  }
  Game.play.onmouseout = function () {
-     if(Game.play.value === 'Play'){
-       Game.play.style.backgroundImage = "url('image/play.png')";
-     }
-     else if(Game.play.value === 'Stop'){
-       Game.play.style.backgroundImage = "url('image/stop.png')";
-     }
+   if(Game.play.value === 'Play'){
+     Game.play.style.backgroundImage = "url('image/play.png')";
+   }
+   else if(Game.play.value === 'Stop'){
+     Game.play.style.backgroundImage = "url('image/stop.png')";
+   }
  }
 }
