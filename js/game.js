@@ -42,7 +42,10 @@ var Game = {
   },
   increaseSpeed: function () {
     Game.count = Game.count + 1;
-    if(Game.count === 1) {
+    if(Game.count === 0){
+      time = 1000;
+    }
+    else if(Game.count === 1) {
       time = 500;
     }
     else if(Game.count === 2) {
