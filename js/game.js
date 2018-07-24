@@ -41,20 +41,25 @@ var Game = {
     }
   },
   increaseSpeed: function () {
-    Game.count = Game.count + 1;
     if(Game.count === 0){
       time = 1000;
+      Game.count = Game.count + 1;
     }
     else if(Game.count === 1) {
       time = 500;
+      Game.count = Game.count + 1;
     }
     else if(Game.count === 2) {
       time = 250;
+      Game.count = Game.count + 1;
     }
     else if(Game.count === 3) {
       time = 50;
       Game.count = 0;
+      console.log('ahora si', Game.count);
     }
+    console.log('click' + Game.count);
+    console.log('time' + time);
   }
 }
 function changeButtonImage() {
