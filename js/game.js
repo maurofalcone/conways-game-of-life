@@ -28,6 +28,7 @@ var Game = {
     Game.play.onclick = Game.update;
     Game.speedUp.onclick = Game.increaseSpeed;
     Game.reset.onclick = Game.resetGame;
+    Game.saveProgress.onclick = Game.save;
     changeButtonImage();
   },
   update: function () {
@@ -70,6 +71,12 @@ var Game = {
       time = 50;
       Game.count = 0;
     }
+  },
+  save: function () {
+    if(id !== 0){
+      clearInterval(id);
+    }
+    GameStorage.save();
   }
 }
 function changeButtonImage() {

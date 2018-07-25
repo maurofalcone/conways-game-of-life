@@ -24,9 +24,11 @@ var GameStorage = {
   save: function () {
     GameStorage.game = localStorage.setItem('game', document.getElementsByClassName('game')[0]);
     GameStorage.board = localStorage.setItem('boardSize', Board.columns);
+    alert('The game has been saved');
   },
   load: function () {
     GameStorage.game = localStorage.getItem('game');
+    console.log(GameStorage);
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
     GameStorage.game.style.display = "flex";

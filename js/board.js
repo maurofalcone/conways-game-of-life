@@ -43,6 +43,7 @@ var Board = {
     Board.paint();
   },
   resize : function () {
+    Board.createCells();
     var board = document.getElementsByClassName('board')[0];
     var size = ((Board.columns * 36));
     board.style.width = size + "px";
