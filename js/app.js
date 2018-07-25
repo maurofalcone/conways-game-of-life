@@ -5,9 +5,10 @@ window.onload = function() {
     GameStorage.init();
     console.log('last game');
   }
-  console.log('no game saved');
+  else{
   var btnSave = document.getElementById('save');
   btnSave.onclick = Modal.init;
     Game.init();
     Game.start();
+  }
 }

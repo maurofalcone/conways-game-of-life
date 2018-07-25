@@ -27,11 +27,12 @@ var GameStorage = {
     alert('The game has been saved');
   },
   load: function () {
-    GameStorage.game = localStorage.getItem('game');
+    var game = localStorage.getItem('game');
+    GameStorage.game.innerHTML = game;
     console.log(GameStorage);
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
-    GameStorage.game.style.display = "flex";
+    game.style.display = "flex";
     Board.resize();
     var Play = function () {
       var liAlives = Board.getCells();
