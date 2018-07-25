@@ -31,7 +31,6 @@ var Board = {
             html = html + '<li></li>';
         }
       }
-
     }
     board.innerHTML = html;
   },
@@ -41,14 +40,17 @@ var Board = {
     var newBoard = GameOfLife.createEmtyBoard(Board.rows, Board.columns);
     GameOfLife.getNextStep(currentBoard, newBoard);
     Board.updateCells(newBoard);
-    for (var i = 0; i < Game.cells.length; i++) {
-      Game.cells[i].onclick = Cell.toggle;
-    }
+    Board.paint();
   },
   resize : function () {
     var board = document.getElementsByClassName('board')[0];
     var size = ((Board.columns * 36));
     board.style.width = size + "px";
     board.style.height = size + "px";
+  },
+  paint: function () {
+    for (var i = 0; i < Game.cells.length; i++) {
+      Game.cells[i].onclick = Cell.toggle;
+    }
   }
 }

@@ -4,6 +4,7 @@ var Game = {
   play: null,
   speedUp: null,
   saveProgress: null,
+  reset: null,
   board: null,
   cells: null,
   id: null,
@@ -15,7 +16,9 @@ var Game = {
     Game.play = document.getElementById('play');
     Game.saveProgress = document.getElementById('saveProgress');
     Game.speedUp = document.getElementById('speedUp');
+    Game.reset = document.getElementById('reset');
     time = 1000;
+    id = 0;
   },
   start: function () {
     for (var i = 0; i < Game.cells.length; i++) {
@@ -24,6 +27,7 @@ var Game = {
     Game.next.onclick = Board.nextStep;
     Game.play.onclick = Game.update;
     Game.speedUp.onclick = Game.increaseSpeed;
+    Game.reset.onclick = Game.resetGame;
     changeButtonImage();
   },
   update: function () {
@@ -39,6 +43,15 @@ var Game = {
       Game.play.style.backgroundImage = "url('image/play.png')";
       Game.speedUp.disabled = false;
     }
+  },
+  resetGame: function () {
+    if(id !== 0){
+      clearInterval(id);
+    }
+    Board.createCells();
+    Game.play.value = 'Play'
+    Game.play.style.backgroundImage = "url('image/play.png')";
+    Board.paint();
   },
   increaseSpeed: function () {
     if(Game.count === 0){
@@ -78,6 +91,9 @@ function changeButtonImage() {
  }
  Game.saveProgress.onmouseover = function () {
    Game.saveProgress.title = 'Save';
+ }
+ Game.reset.onmouseover = function () {
+   Game.reset.title = 'Reset';
  }
  Game.play.onmouseout = function () {
    if(Game.play.value === 'Play'){
