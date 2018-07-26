@@ -21,15 +21,17 @@ var Game = {
     id = 0;
   },
   start: function () {
-    Board.paint();
     Game.next.onclick = Board.nextStep;
     Game.play.onclick = Game.update;
     Game.speedUp.onclick = Game.increaseSpeed;
     Game.reset.onclick = Game.resetGame;
     Game.saveProgress.onclick = Game.save;
+    console.log('game started');
+    Board.paint();
     changeButtonImage();
   },
   update: function () {
+    console.log('Play');
     if(Game.play.value === 'Play'){
       id = setInterval(Board.nextStep,time);
       Game.play.value = 'Stop';
@@ -44,6 +46,7 @@ var Game = {
     }
   },
   resetGame: function () {
+    console.log('Reset');
     if(id !== 0){
       clearInterval(id);
     }
@@ -53,6 +56,7 @@ var Game = {
     Board.paint();
   },
   increaseSpeed: function () {
+    console.log('Increase Speed');
     if(Game.count === 0){
       time = 1000;
       Game.count = Game.count + 1;
@@ -71,6 +75,7 @@ var Game = {
     }
   },
   save: function () {
+    console.log('Save');
     if(id !== 0){
       clearInterval(id);
     }

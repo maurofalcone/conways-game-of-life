@@ -13,4 +13,4 @@ window.onload = function() {
     }
     Game.init();
     Game.start();
-  }
+}

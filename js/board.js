@@ -35,6 +35,7 @@ var Board = {
     board.innerHTML = html;
   },
   nextStep: function () {
+    console.log('Next Step');
     var boardHTML = Board.getCells();
     var currentBoard = GameOfLife.getBoardFromHTML(boardHTML, Board.columns);
     var newBoard = GameOfLife.createEmtyBoard(Board.rows, Board.columns);
