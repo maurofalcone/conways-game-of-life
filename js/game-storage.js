@@ -32,12 +32,6 @@ var GameStorage = {
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
     document.getElementsByClassName('game')[0].style.display = 'flex';
-
-        var Play = function () {
-          var liAlives = Board.getCells();
-          Board.updateCells(liAlives);
-        }
-        Board.paint();
   },
   cancelLoad: function () {
     GameStorage.hideModalStorage();
