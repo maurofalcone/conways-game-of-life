@@ -28,7 +28,7 @@ var GameStorage = {
   },
   load: function () {
     var game = localStorage.getItem('game');
-    document.getElementsByClassName('game')[0].innerHTML = game;
+    document.getElementsByClassName('game').innerHTML = game;
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
     console.log(Board.columns);
