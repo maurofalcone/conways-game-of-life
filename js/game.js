@@ -21,9 +21,7 @@ var Game = {
     id = 0;
   },
   start: function () {
-    for (var i = 0; i < Game.cells.length; i++) {
-      Game.cells[i].onclick = Cell.toggle;
-    }
+    Board.paint();
     Game.next.onclick = Board.nextStep;
     Game.play.onclick = Game.update;
     Game.speedUp.onclick = Game.increaseSpeed;
