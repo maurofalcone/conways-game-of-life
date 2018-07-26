@@ -28,22 +28,27 @@ var GameStorage = {
   },
   load: function () {
     var game = localStorage.getItem('game');
-    GameStorage.game.innerHTML = game;
-    console.log(GameStorage);
+    document.getElementsByClassName('game')[0].innerHTML = game;
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
-    game.style.display = "flex";
+    console.log(Board.columns);
+    var aux = document.getElementsByClassName('game')[0];
+    console.log(aux);
+    aux.style.display = 'flex';
+    //si no las crea es porq falta en el init el Board.createCells();
     Board.resize();
-    var Play = function () {
+      var Play = function () {
       var liAlives = Board.getCells();
       Board.updateCells(liAlives);
-    }
-    Game.init();
-    Game.start();
+     }
+     Game.init();
+     Game.start();
   },
   cancelLoad: function () {
     GameStorage.hideModalStorage();
+    localStorage.removeItem('game');
     Modal.show();
+    window.onload();
   },
   acceptLoad: function () {
     GameStorage.hideModalStorage();
