@@ -22,27 +22,22 @@ var GameStorage = {
     GameStorage.accept.onclick = GameStorage.acceptLoad;
   },
   save: function () {
-    GameStorage.game = localStorage.setItem('game', document.getElementsByClassName('game')[0]);
-    GameStorage.board = localStorage.setItem('boardSize', Board.columns);
+    localStorage.setItem('game', document.getElementsByClassName('game')[0].innerHTML);
+    localStorage.setItem('boardSize', Board.columns);
     alert('The game has been saved');
   },
   load: function () {
     var game = localStorage.getItem('game');
-    document.getElementsByClassName('game').innerHTML = game;
+    document.getElementsByClassName('game')[0].innerHTML = game;
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
-    console.log(Board.columns);
-    var aux = document.getElementsByClassName('game')[0];
-    console.log(aux);
-    aux.style.display = 'flex';
-    //si no las crea es porq falta en el init el Board.createCells();
-    Board.resize();
-      var Play = function () {
-      var liAlives = Board.getCells();
-      Board.updateCells(liAlives);
-     }
-     Game.init();
-     Game.start();
+    document.getElementsByClassName('game')[0].style.display = 'flex';
+
+        var Play = function () {
+          var liAlives = Board.getCells();
+          Board.updateCells(liAlives);
+        }
+        Board.paint();
   },
   cancelLoad: function () {
     GameStorage.hideModalStorage();
