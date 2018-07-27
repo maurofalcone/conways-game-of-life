@@ -44,9 +44,8 @@ var Game = {
     }
   },
   resetGame: function () {
-    if(id !== 0){
-      clearInterval(id);
-    }
+    time = 1000;
+    clearInterval(id);
     Board.createCells();
     Game.play.value = 'Play'
     Game.play.style.backgroundImage = "url('image/play.png')";
