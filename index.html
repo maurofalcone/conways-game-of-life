@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/modal-window.css">
     <script type="text/javascript" src="js/game-storage.js"></script>
     <script type="text/javascript" src="js/modal-window.js"></script>
+    <script type="text/javascript" src="js/validations.js"></script>
     <script type="text/javascript" src="js/game-of-life.js"></script>
     <script type="text/javascript" src="js/cell.js"></script>
     <script type="text/javascript" src="js/board.js"></script>
@@ -34,8 +35,9 @@
           <h2>Conway's Game of Life</h2>
         </div>
         <div class="modal-body">
-          <p>Filas y Columnas</p>
-          <input id="number" type="text" name="number" value="">
+          <p>Table (NxN)</p>
+          <input id="number" type="text" name="number" value="0">
+          <p id="validation-text"><span>You must enter a number between 5 and 15</span></p>
         </div>
         <div class="modal-footer">
           <button id="save" type="button" name="save">Save</button>

@@ -2,11 +2,18 @@ var Modal = {
   number: 0,
   modal: null,
   init: function () {
-    GameStorage.hideModalStorage();
-    Modal.save();
-    Board.resize();
-    Game.init();
-    Game.start();
+    var text = document.getElementById('number').value;
+    if(Validation.onlyNumbers(text) === true){
+      GameStorage.hideModalStorage();
+      Modal.save();
+      Board.resize();
+      Game.init();
+      Game.start();
+    }
+    else
+    {
+      Validation.message();
+    }
   },
   show: function () {
    Modal.modal = document.getElementById('modal');
