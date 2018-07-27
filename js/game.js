@@ -27,9 +27,10 @@ var Game = {
     Game.saveProgress.onclick = Game.save;
     Board.paint();
     changeButtonImage();
+    Game.play.value = 'Play'
+    Game.play.style.backgroundImage = "url('image/play.png')";
   },
   update: function () {
-    console.log('Play');
     if(Game.play.value === 'Play'){
       id = setInterval(Board.nextStep,time);
       Game.play.value = 'Stop';
@@ -73,8 +74,10 @@ var Game = {
     if(id !== 0){
       clearInterval(id);
     }
-    GameStorage.save();
-  }
+      GameStorage.save();
+      Game.play.value = 'Play'
+      Game.play.style.backgroundImage = "url('image/play.png')";
+    }
 }
 function changeButtonImage() {
  Game.play.onmouseover = function () {
