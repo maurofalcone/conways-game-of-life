@@ -48,8 +48,21 @@ var GameOfLife = {
     if(board[posX+1] && board[posX+1][posY-1]) ++count;
     if(board[posX+1] && board[posX+1][posY]) ++count;
     if(board[posX+1] && board[posX+1][posY+1]) ++count;
-    var rule1 = !cell && count>= 3;
-    var rule2 = cell && (count === 2 || count=== 3);
-    return rule1 || rule2;
+    if (!cell) {
+      if (count === 3) {
+        return true;
+      }
+    }
+    if (cell) {
+      if (count < 2) {
+        return false;
+      }
+      if (count === 2 || count === 3) {
+        return true;
+      }
+      if (count > 3) {
+        return false;
+      }
+    }
   }
 }
