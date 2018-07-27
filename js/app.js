@@ -10,7 +10,9 @@ window.onload = function() {
   else{
     var btnSave = document.getElementById('save');
     btnSave.onclick = Modal.init;
+    var Play = function () {
+      var liAlives = Board.getCells();
+      Board.updateCells(liAlives);
     }
-    Game.init();
-    Game.start();
+  }
 }

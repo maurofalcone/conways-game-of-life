@@ -16,10 +16,10 @@ var GameStorage = {
   init: function () {
     Modal.hide();
     GameStorage.showModalStorage();
-    GameStorage.cancel = document.getElementById('cancel');
-    GameStorage.accept = document.getElementById('accept');
-    GameStorage.cancel.onclick = GameStorage.cancelLoad;
-    GameStorage.accept.onclick = GameStorage.acceptLoad;
+     GameStorage.cancel = document.getElementById('cancel');
+     GameStorage.accept = document.getElementById('accept');
+     GameStorage.cancel.onclick = GameStorage.cancelLoad;
+     GameStorage.accept.onclick = GameStorage.acceptLoad;
   },
   save: function () {
     localStorage.setItem('game', document.getElementsByClassName('game')[0].innerHTML);
@@ -32,6 +32,8 @@ var GameStorage = {
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
     document.getElementsByClassName('game')[0].style.display = 'flex';
+    Game.init();
+    Game.start();
   },
   cancelLoad: function () {
     GameStorage.hideModalStorage();

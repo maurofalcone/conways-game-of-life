@@ -44,11 +44,11 @@ var Board = {
     Board.paint();
   },
   resize : function () {
-    var board = document.getElementsByClassName('board')[0];
+    Board.createCells();
+    var board = Board.getBoard();
     var size = ((Board.columns * 36));
     board.style.width = size + "px";
     board.style.height = size + "px";
-    Board.createCells();
   },
   paint: function () {
     for (var i = 0; i < Game.cells.length; i++) {

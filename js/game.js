@@ -9,7 +9,7 @@ var Game = {
   cells: null,
   id: null,
   init: function () {
-    Board.createCells();
+    //Board.createCells();
     Game.board = Board.getBoard();
     Game.cells = Board.getCells();
     Game.next = document.getElementById('next');

@@ -5,11 +5,8 @@ var Modal = {
     GameStorage.hideModalStorage();
     Modal.save();
     Board.resize();
-    var Play = function () {
-      var liAlives = Board.getCells();
-      Board.updateCells(liAlives);
-    }
-    Board.paint();
+    Game.init();
+    Game.start();
   },
   show: function () {
    Modal.modal = document.getElementById('modal');
@@ -24,7 +21,6 @@ var Modal = {
     Modal.number = document.getElementById('number').value;
     Board.columns = Modal.number;
     Board.rows = Modal.number;
-    console.log('hidding');
     Modal.hide();
     game.style.display = "flex";
   }
