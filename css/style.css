@@ -17,30 +17,34 @@ html,body
 {
   display: flex;
   flex-wrap: wrap;
-  background-color: #ccc;
+  background-color: #CCC;
   border: 2px solid #999;
   width: 180px;
   height: 180px;
+  border-radius: 5%;
 }
 
 .board li
 {
+  border-radius: 25%;
   width: 30px;
   height: 30px;
   margin: 2px;
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: #FFF;
+  border: 1px solid #999;
   cursor: pointer;
 }
 
 .board li.alive
 {
-  background-color: #090;
+  background-color: #FF0532;
+  border: 1px solid #999;
 }
 
-button
+.game button
 {
   margin: 5px;
+  border-radius: 25%;
 }
 
 .buttons button

@@ -16,18 +16,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Modal Content */
-.modal-content {
+#modal .modal-content, #modal-storage .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: #FEFEFE;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid #FF0532;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+#modal .modal-content
+{
+  width: 40%;
+}
+
+#modal-storage .modal-content
+{
+  width: 15%;
 }
 
 /* Add Animation */
@@ -57,8 +66,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
+    padding: 10px 16px;
+    background-color: #FF0532;
     color: white;
 }
 
@@ -66,7 +75,36 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #FF0532;
     color: white;
     overflow: hidden;
+}
+
+#cancel, #accept
+{
+  border-radius: 25%;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+
+#accept
+{
+  margin-left: 25%;
+  background-image: url('../image/accept.png');
+}
+
+#cancel
+{
+  background-image: url('../image/cancel.png');
+}
+
+#accept:hover
+{
+  background-image: url('../image/alt_accept.png');
+}
+
+#cancel:hover
+{
+  background-image: url('../image/alt_cancel.png');
 }
