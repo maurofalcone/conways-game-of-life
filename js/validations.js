@@ -12,10 +12,12 @@ var Validation = {
     message: function () {
       var p = document.getElementsByTagName('span')[0];
       p.style.backgroundColor = '#FF0532';
+      p.style.color = '#FFF';
       var input = document.getElementById('number');
       input.focus();
       input.onkeypress = function () {
           p.style.backgroundColor = '#FFF';
+          p.style.color = '#000';
       }
     }
 }
