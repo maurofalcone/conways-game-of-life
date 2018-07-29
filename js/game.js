@@ -86,7 +86,6 @@ var Game = {
     },
   changeCellsColor: function () {
     var color = document.getElementById('js-color');
-    console.log(color.value);
     document.documentElement.style.setProperty('--aliveColor', '#'+color.value+'');
   }
 }
