@@ -8,6 +8,8 @@ var Game = {
   board: null,
   cells: null,
   id: null,
+  color: null,
+  inputColor: null,
   init: function () {
     Game.board = Board.getBoard();
     Game.cells = Board.getCells();
@@ -16,6 +18,7 @@ var Game = {
     Game.saveProgress = document.getElementById('saveProgress');
     Game.speedUp = document.getElementById('speedUp');
     Game.reset = document.getElementById('reset');
+    Game.inputColor = document.getElementById('js-color');
     time = 1000;
     id = 0;
   },
@@ -29,15 +32,18 @@ var Game = {
     changeButtonImage();
     Game.play.value = 'Play'
     Game.play.style.backgroundImage = "url('image/play.png')";
+    Game.inputColor.onchange = Game.changeCellsColor;
   },
   update: function () {
     if(Game.play.value === 'Play'){
+      Game.bool = true;
       id = setInterval(Board.nextStep,time);
       Game.play.value = 'Stop';
       Game.play.style.backgroundImage = "url('image/stop.png')";
       Game.speedUp.disabled = true;
     }
     else if(Game.play.value === 'Stop'){
+      Game.bool = false;
       clearInterval(id);
       Game.play.value = 'Play'
       Game.play.style.backgroundImage = "url('image/play.png')";
@@ -77,7 +83,12 @@ var Game = {
       GameStorage.save();
       Game.play.value = 'Play'
       Game.play.style.backgroundImage = "url('image/play.png')";
-    }
+    },
+  changeCellsColor: function () {
+    var color = document.getElementById('js-color');
+    console.log(color.value);
+    document.documentElement.style.setProperty('--aliveColor', '#'+color.value+'');
+  }
 }
 function changeButtonImage() {
  Game.play.onmouseover = function () {
