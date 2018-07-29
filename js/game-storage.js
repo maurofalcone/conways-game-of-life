@@ -22,9 +22,12 @@ var GameStorage = {
      GameStorage.accept.onclick = GameStorage.acceptLoad;
   },
   save: function () {
+    //añadir
+    localStorage.setItem('color', document.getElementById('js-color').value);
+    //-----------
     localStorage.setItem('game', document.getElementsByClassName('game')[0].innerHTML);
     localStorage.setItem('boardSize', Board.columns);
-    alert('The game has been saved');
+    alert('The game has been saved' + localStorage.getItem('color'));
   },
   load: function () {
     var game = localStorage.getItem('game');
@@ -32,6 +35,15 @@ var GameStorage = {
     Board.columns = localStorage.getItem('boardSize');
     Board.rows = localStorage.getItem('boardSize');
     document.getElementsByClassName('game')[0].style.display = 'flex';
+    //añadir
+    document.getElementById('js-color').style.display = 'flex';
+    var color = localStorage.getItem('color');
+    document.documentElement.style.setProperty('--aliveColor', '#'+color+'');
+    document.getElementById('js-color').value = color;
+    document.getElementById('js-color').style.backgroundColor = '#'+color+'';
+    document.getElementById('color-picker').style.display = 'flex';
+    document.getElementsByClassName('game-container')[0].style.display = 'flex';
+    //------------
     Game.init();
     Game.start();
   },

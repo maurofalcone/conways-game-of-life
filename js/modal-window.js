@@ -30,5 +30,7 @@ var Modal = {
     Board.rows = Modal.number;
     Modal.hide();
     game.style.display = "flex";
+    document.getElementById('color-picker').style.display = 'flex';
+    document.getElementsByClassName('game-container')[0].style.display = 'flex';
   }
 }
