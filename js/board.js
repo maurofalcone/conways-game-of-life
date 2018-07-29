@@ -42,7 +42,7 @@ var Board = {
     Board.updateCells(newBoard);
     Board.paint();
   },
-  resize : function () {
+  resize: function () {
     Board.createCells();
     var board = Board.getBoard();
     var size = ((Board.columns * 36));
