@@ -2,7 +2,7 @@ window.onload = function() {
   var storage = localStorage.getItem('game');
   if(storage !== null){
     GameStorage.init();
-    var Play = function () {
+      var Play = function () {
       var liAlives = Board.getCells();
       Board.updateCells(liAlives);
     }
@@ -10,9 +10,9 @@ window.onload = function() {
   else{
     var btnSave = document.getElementById('save');
     btnSave.onclick = Modal.init;
-    var Play = function () {
-      var liAlives = Board.getCells();
-      Board.updateCells(liAlives);
+    function Play() {
+        var liAlives = Board.getCells();
+        Board.updateCells(liAlives);
     }
   }
 }
