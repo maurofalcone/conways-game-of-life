@@ -1,6 +1,34 @@
+:root
+{
+  --aliveColor: #FF0532;
+}
+
 html,body
 {
     background-color: #333;
+}
+
+.game-container
+{
+  display: none;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+#color-picker
+{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 10vh;
+}
+
+#color-picker p
+{
+  flex-direction: column;
+  color: white;
 }
 
 .game
@@ -8,8 +36,9 @@ html,body
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
+  /* revisar en notebook como se ve, sino asignar el 100vh; */
   height: 100vh;
 }
 
@@ -18,10 +47,9 @@ html,body
   display: flex;
   flex-wrap: wrap;
   background-color: #CCC;
-  border: 2px solid #999;
-  width: 180px;
-  height: 180px;
-  border-radius: 5%;
+  width: 188px;
+  height: 188px;
+  border-radius: 2.5%;
 }
 
 .board li
@@ -37,7 +65,7 @@ html,body
 
 .board li.alive
 {
-  background-color: #FF0532;
+  background-color: var(--aliveColor);
   border: 1px solid #999;
 }
 
