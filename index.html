@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal-window.css">
     <script type="text/javascript" src="js/game-storage.js"></script>
+    <script type="text/javascript"src="js/jscolor.js"></script>
     <script type="text/javascript" src="js/modal-window.js"></script>
     <script type="text/javascript" src="js/validations.js"></script>
     <script type="text/javascript" src="js/game-of-life.js"></script>
@@ -42,16 +43,22 @@
         </div>
       </div>
     </div>
-    <div class="game">
-      <ul class="board">
-      </ul>
-      <div class="buttons">
-        <button id="play" type="button" name="play" value="Play"></button>
-        <button id="next" type="button" name="next" value="Next"></button>
-        <button id="speedUp" type="button" name="button" value="speedUp" ></button>
-        <button id="saveProgress" type="button" name="button" value="saveProgress"></button>
-        <button id="reset" type="button" name="button" value="save"></button>
+      <div class="game-container">
+        <div id="color-picker">
+          <p>Select a cell's color:</p>
+            <input id="js-color" class="jscolor" value="FF0532">
+        </div>
+        <div class="game">
+          <ul class="board">
+          </ul>
+          <div class="buttons">
+            <button id="play" type="button" name="play" value="Play"></button>
+            <button id="next" type="button" name="next" value="Next"></button>
+            <button id="speedUp" type="button" name="button" value="speedUp" ></button>
+            <button id="saveProgress" type="button" name="button" value="saveProgress"></button>
+            <button id="reset" type="button" name="button" value="save"></button>
+          </div>
+        </div>
       </div>
-    </div>
   </body>
 </html>
