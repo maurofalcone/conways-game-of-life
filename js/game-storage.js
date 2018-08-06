@@ -5,21 +5,45 @@ var GameStorage = {
   cancel: null,
   accept: null,
   save: null,
+  color: null,
+  clear: function () {
+    localStorage.removeItem('game');
+    localStorage.removeItem('boardSize');
+    localStorage.removeItem('color');
+  },
+  getModalStorage: function () {
+    return document.getElementById('modal-storage');
+  },
+  getColor: function () {
+    return localStorage.getItem('color');
+  },
+  getBoardSize: function () {
+    return localStorage.getItem('boardSize');
+  },
+  getGame: function () {
+    return localStorage.getItem('game');
+  },
+  getBtnCancel: function () {
+    return document.getElementById('cancel');
+  },
+  getBtnAccept: function () {
+    return document.getElementById('accept');
+  },
   showModalStorage: function () {
-    GameStorage.modalStorage = document.getElementById('modal-storage');
+    GameStorage.modalStorage = GameStorage.getModalStorage();
     GameStorage.modalStorage.style.display = 'flex';
   },
   hideModalStorage: function () {
-    GameStorage.modalStorage = document.getElementById('modal-storage');
+    GameStorage.modalStorage = GameStorage.getModalStorage();
     GameStorage.modalStorage.style.display = 'none';
   },
   init: function () {
     Modal.hide();
     GameStorage.showModalStorage();
-     GameStorage.cancel = document.getElementById('cancel');
-     GameStorage.accept = document.getElementById('accept');
-     GameStorage.cancel.onclick = GameStorage.cancelLoad;
-     GameStorage.accept.onclick = GameStorage.acceptLoad;
+    GameStorage.cancel = GameStorage.getBtnCancel();
+    GameStorage.accept = GameStorage.getBtnAccept();
+    GameStorage.cancel.onclick = GameStorage.cancelLoad;
+    GameStorage.accept.onclick = GameStorage.acceptLoad;
   },
   save: function () {
     localStorage.setItem('color', document.getElementById('js-color').value);
@@ -28,17 +52,16 @@ var GameStorage = {
     alert('The game has been saved');
   },
   load: function () {
-    var game = localStorage.getItem('game');
-    document.getElementsByClassName('game')[0].innerHTML = game;
-    Board.columns = localStorage.getItem('boardSize');
-    Board.rows = localStorage.getItem('boardSize');
+    document.getElementsByClassName('game')[0].innerHTML = GameStorage.game;
+    Board.columns = GameStorage.getBoardSize();
+    Board.rows = GameStorage.getBoardSize();
     document.getElementsByClassName('game')[0].style.display = 'flex';
     var jsColor = document.getElementById('js-color');
     jsColor.style.display = 'flex';
-    var color = localStorage.getItem('color');
-    document.documentElement.style.setProperty('--aliveColor', '#'+color+'');
-    jsColor.value = color;
-    jsColor.style.backgroundColor = '#'+color+'';
+    GameStorage.color = GameStorage.getColor();
+    document.documentElement.style.setProperty('--aliveColor', '#'+GameStorage.color+'');
+    jsColor.value = GameStorage.color;
+    jsColor.style.backgroundColor = '#'+GameStorage.color+'';
     document.getElementById('color-picker').style.display = 'flex';
     document.getElementsByClassName('game-container')[0].style.display = 'flex';
     Game.init();
@@ -46,7 +69,7 @@ var GameStorage = {
   },
   cancelLoad: function () {
     GameStorage.hideModalStorage();
-    localStorage.removeItem('game');
+    GameStorage.clear();
     Modal.show();
     window.onload();
   },

@@ -53,5 +53,9 @@ var Board = {
     for (var i = 0; i < Game.cells.length; i++) {
       Game.cells[i].onclick = Cell.toggle;
     }
+  },
+  play: function () {
+    var liAlives = Board.getCells();
+    Board.updateCells(liAlives);
   }
 }

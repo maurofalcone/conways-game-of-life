@@ -1,6 +1,19 @@
 var Modal = {
   number: 0,
   modal: null,
+  game: null,
+  getModal: function () {
+    return document.getElementById('modal');
+  },
+  getGame: function () {
+    return document.getElementsByClassName('game')[0];
+  },
+  getNumber: function () {
+    return document.getElementById('number').value;
+  },
+  getBtnSave: function () {
+    return document.getElementById('save');
+  },
   init: function () {
     var text = document.getElementById('number').value;
     if(Validation.onlyNumbers(text) === true){
@@ -16,20 +29,20 @@ var Modal = {
     }
   },
   show: function () {
-   Modal.modal = document.getElementById('modal');
+   Modal.modal = Modal.getModal();
    Modal.modal.style.display = "flex";
   },
   hide: function () {
-     Modal.modal = document.getElementById('modal');
+     Modal.modal = Modal.getModal();
      Modal.modal.style.display = "none";
   },
   save: function () {
-  var game = document.getElementsByClassName('game')[0];
-    Modal.number = document.getElementById('number').value;
+    Modal.game = Modal.getGame();
+    Modal.number = Modal.getNumber();
     Board.columns = Modal.number;
     Board.rows = Modal.number;
     Modal.hide();
-    game.style.display = "flex";
+    Modal.game.style.display = "flex";
     document.getElementById('color-picker').style.display = 'flex';
     document.getElementsByClassName('game-container')[0].style.display = 'flex';
   }

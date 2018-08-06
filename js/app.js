@@ -1,18 +1,12 @@
 window.onload = function() {
-  var storage = localStorage.getItem('game');
-  if(storage !== null){
+  GameStorage.game = GameStorage.getGame();
+  if(GameStorage.game !== null){
     GameStorage.init();
-      var Play = function () {
-      var liAlives = Board.getCells();
-      Board.updateCells(liAlives);
-    }
+    Board.play;
   }
   else{
-    var btnSave = document.getElementById('save');
+    var btnSave = Modal.getBtnSave();
     btnSave.onclick = Modal.init;
-    function Play() {
-        var liAlives = Board.getCells();
-        Board.updateCells(liAlives);
-    }
+    Board.play;
   }
 }
